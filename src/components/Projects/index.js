@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   Link, useHistory
 } from "react-router-dom";
@@ -12,6 +12,29 @@ const projects = [
 ]
 
 const Projects = () => {
+  const projectRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+  const titleRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+  const rowRefs = useRef([React.createRef(), React.createRef(), React.createRef()]);
+
+  const [height, setHeight] = useState(0)
+  const [paddingTop, setPaddingTop] = useState(0)
+  const heightRef = useRef(height);
+  heightRef.current = height
+  const paddingRef = useRef(paddingTop)
+  paddingRef.current = paddingTop
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const projectHeight = projectRefs.current[0].current.offsetWidth
+      setHeight(projectHeight)
+      const projectPaddingTop = (heightRef.current - titleRefs.current[0].current.offsetHeight - rowRefs.current[0].current.clientHeight) / 2
+      setPaddingTop(projectPaddingTop)
+    }, 500)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
+
   return (
     <div className="projects" id="projects">
       <div className="container-fluid">
@@ -31,16 +54,13 @@ const Projects = () => {
           </div>
         </div>
 
-
-
         <div className="row">
-
           {projects.map((project, index) => (
             <div className="col-sm-4 col-md-4 text-center" key={`project-${index}`}>
-              <div className={project.className} style={{ height: '460px' }} >
-                <h3>{project.title}</h3>
+              <div className={project.className} ref={projectRefs.current[index]} style={height ? { height: height } : {}}>
+                <h3 ref={titleRefs.current[index]} style={paddingTop ? { paddingTop: paddingTop } : {}}>{project.title}</h3>
                 <p>{project.desc}</p>
-                <div className="row">
+                <div className="row" ref={rowRefs.current[index]}>
                   <div className="col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
                     <div className="project-more-info">
                       <a className="btn btn-default btn-border" href="#">More</a>

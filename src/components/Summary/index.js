@@ -16,7 +16,7 @@ const Summary = () => {
           <div className="development-summary">
             <div className="col-sm-1 col-md-1">
               <div className="development-img">
-                <img className="img-responsive" src={developerdesign} />
+                <img className="img-responsive summary-icon" src={developerdesign} />
               </div>
             </div>
 
@@ -31,7 +31,7 @@ const Summary = () => {
           <div className="responsive-summary">
             <div className="col-sm-1 col-md-1 col-sm-offset-2 col-md-offset-2">
               <div className="responsive-img">
-                <img className="img-responsive" src={responsivedesign} />
+                <img className="img-responsive summary-icon" src={responsivedesign} />
               </div>
             </div>
 
@@ -48,7 +48,7 @@ const Summary = () => {
           <div className="ideas-summary">
             <div className="col-sm-1 col-md-1">
               <div className="idea-img">
-                <img className="img-responsive" src={innovativesolutions} />
+                <img className="img-responsive summary-icon" src={innovativesolutions} />
               </div>
             </div>
 
@@ -62,7 +62,7 @@ const Summary = () => {
 
           <div className="passion-summary">
             <div className="col-sm-1 col-md-1 col-sm-offset-2 col-md-offset-2">
-              <img className="img-responsive" src={passion} />
+              <img className="img-responsive summary-icon" src={passion} />
             </div>
 
             <div className="col-sm-4 col-md-4">

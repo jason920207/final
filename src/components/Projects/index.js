@@ -4,6 +4,12 @@ import {
 } from "react-router-dom";
 import logo from '../../assets/images/logo.svg'
 
+const projects = [
+  { className: "luvtalk-project", title: "LUV TALK Website", desc: "Website, created during my first internship, which utilized HTML, CSS, PHP, Ajax, Javascript/jQuery, and Wordpress." },
+  { className: "personal-website-project", title: "Personal Website", desc: "Enjoyable side project that was created to experiment with more HTML and CSS, but also provided an outlet to showcase my abilities and interests." },
+  { className: "strike-zone-project", title: "Strike Zone Analysis", desc: "Data analytics project completed during my time at the Illinois Math and Science Academy which studied the baseball strike zone based on the state of the game." },
+
+]
 
 const Projects = () => {
   return (
@@ -25,48 +31,25 @@ const Projects = () => {
           </div>
         </div>
 
+
+
         <div className="row">
-          <div className="col-sm-4 col-md-4 text-center">
-            <div className="luvtalk-project">
-              <h3>LUV TALK Website</h3>
-              <p>Website, created during my first internship, which utilized HTML, CSS, PHP, Ajax, Javascript/jQuery, and Wordpress. </p>
-              <div className="row">
-                <div className="col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-                  <div className="project-more-info">
-                    <a className="btn btn-default btn-border" href="#">More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
-          <div className="col-sm-4 col-md-4 text-center">
-            <div className="personal-website-project">
-              <h3>Personal Website</h3>
-              <p>Enjoyable side project that was created to experiment with more HTML and CSS, but also provided an outlet to showcase my abilities and interests.</p>
-              <div className="row">
-                <div className="col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-                  <div className="project-more-info">
-                    <a className="btn btn-default btn-border" href="#">More</a>
+          {projects.map((project, index) => (
+            <div className="col-sm-4 col-md-4 text-center" key={`project-${index}`}>
+              <div className={project.className} style={{ height: '460px' }} >
+                <h3>{project.title}</h3>
+                <p>{project.desc}</p>
+                <div className="row">
+                  <div className="col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
+                    <div className="project-more-info">
+                      <a className="btn btn-default btn-border" href="#">More</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-sm-4 col-md-4 text-center">
-            <div className="strike-zone-project">
-              <h3>Strike Zone Analysis</h3>
-              <p>Data analytics project completed during my time at the Illinois Math and Science Academy which studied the baseball strike zone based on the state of the game.</p>
-              <div className="row">
-                <div className="col-sm-4 col-md-4 col-sm-offset-4 col-md-offset-4">
-                  <div className="project-more-info">
-                    <a className="btn btn-default btn-border" href="#">More</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         <div className="row">

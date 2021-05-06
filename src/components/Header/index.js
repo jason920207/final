@@ -16,8 +16,8 @@ const Header = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setNavHeight(logoEl.current.offsetHeight)
-      setLiHeight((navRef.current - liEl.current.offsetHeight) / 2)
+      setNavHeight(logoEl.current.clientHeight)
+      setLiHeight((navRef.current - liEl.current.clientHeight) / 2)
     }, 500)
 
     return () => {

@@ -20,14 +20,12 @@ const Projects = () => {
   const [paddingTop, setPaddingTop] = useState(0)
   const heightRef = useRef(height);
   heightRef.current = height
-  const paddingRef = useRef(paddingTop)
-  paddingRef.current = paddingTop
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      const projectHeight = projectRefs.current[0].current.offsetWidth
+      const projectHeight = projectRefs.current[0].current.clientWidth
       setHeight(projectHeight)
-      const projectPaddingTop = (heightRef.current - titleRefs.current[0].current.offsetHeight - rowRefs.current[0].current.clientHeight) / 2
+      const projectPaddingTop = (heightRef.current - titleRefs.current[0].current.clientHeight - rowRefs.current[0].current.offsetHeight) / 2
       setPaddingTop(projectPaddingTop)
     }, 500)
     return () => {
